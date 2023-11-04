@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+// Kelas utama bentuk geometri
+class BentukGeometri {
+    // Metode untuk menghitung luas
+    public double hitungLuas() {
+        return 0.0;
+    }
+
+    // Metode untuk menghitung keliling
+    public double hitungKeliling() {
+        return 0.0;
+    }
+}
+
+// Subkelas Lingkaran yang mewarisi dari BentukGeometri
+class Lingkaran extends BentukGeometri {
+    private double jariJari;
+
+    // Konstruktor
+    public Lingkaran(double jariJari) {
+        this.jariJari = jariJari;
+    }
+
+    // Override metode hitungLuas dari kelas induk
+    @Override
+    public double hitungLuas() {
+        return Math.PI * jariJari * jariJari;
+    }
+
+    // Override metode hitungKeliling dari kelas induk
+    @Override
+    public double hitungKeliling() {
+        return 2 * Math.PI * jariJari;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan jari-jari lingkaran: ");
+        double jariJari = scanner.nextDouble();
+
+        Lingkaran lingkaran = new Lingkaran(jariJari);
+
+        double luas = lingkaran.hitungLuas();
+        double keliling = lingkaran.hitungKeliling();
+
+        System.out.println("Luas lingkaran: " + luas);
+        System.out.println("Keliling lingkaran: " + keliling);
+
+        scanner.close();
+    }
+}
