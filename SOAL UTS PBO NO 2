@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class BeratBadanIdeal {
+    private double beratBadan;
+    private double tinggiBadan;
+
+    public BeratBadanIdeal(double beratBadan, double tinggiBadan) {
+        this.beratBadan = beratBadan;
+        this.tinggiBadan = tinggiBadan;
+    }
+
+    public double hitungBMI() {
+        return beratBadan / (tinggiBadan * tinggiBadan);
+    }
+
+    public String tentukanStatus() {
+        double bmi = hitungBMI();
+        
+        if (bmi >= 18.5 && bmi <= 22.9) {
+            return "Berat badan ideal";
+        } else if (bmi > 22.9) {
+            return "Overweight";
+        } else {
+            return "Underweight";
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan berat badan (kg): ");
+        double berat = scanner.nextDouble();
+
+        System.out.print("Masukkan tinggi badan (m): ");
+        double tinggi = scanner.nextDouble();
+
+        BeratBadanIdeal person = new BeratBadanIdeal(berat, tinggi);
+        String status = person.tentukanStatus();
+
+        System.out.println("Status berat badan: " + status);
+
+        scanner.close();
+    }
+}
