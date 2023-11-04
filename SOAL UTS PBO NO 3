@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class BilanganBulat {
+    private int[] bilangan = new int[10];
+    private int total = 0;
+    private Scanner scanner = new Scanner(System.in);
+
+    public void inputBilangan() {
+        System.out.println("Masukkan 10 bilangan bulat:");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Bilangan ke-" + (i + 1) + ": ");
+            bilangan[i] = scanner.nextInt();
+        }
+    }
+
+    public void hitungTotal() {
+        for (int i = 0; i < 10; i++) {
+            total += bilangan[i];
+        }
+    }
+
+    public void tampilHasil() {
+        System.out.print("Bilangan yang dimasukkan: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(bilangan[i] + " ");
+        }
+        System.out.println("\nTotal: " + total);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BilanganBulat bilangan = new BilanganBulat();
+        bilangan.inputBilangan();
+        bilangan.hitungTotal();
+        bilangan.tampilHasil();
+    }
+}
